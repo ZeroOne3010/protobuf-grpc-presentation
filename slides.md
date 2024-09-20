@@ -1,37 +1,36 @@
----
-title: Protocol Buffers and gRPC
-author: Ville Saalo
-date: 2024-09-20
----
+# Protocol Buffers and gRPC
 
-# Problem
+Ville Saalo
 
-You have an API definition and need to create a client.
+2024-09-20
 
-- The API is often JSON, but there's no good way to define a schema for it
+
+# Background
+
+I've created tons of JSON APIs and clients for JSON APIs.
+
+**Problem**
+
+- There's no good way to define a schema for a JSON API -> no automatic code generation
   - OpenAPI: auto-generation rarely succeeds; disconnected from the actual workings
   - JSON Schema: nobody uses it; also disconnected
 
----
 
 # Solution
 
-Ditch JSON, use Protocol Buffers (just _Protobuf_ with friends)!
+Ditch JSON, use **Protocol Buffers** instead (just _Protobuf_ with friends)!
 
----
 
 # What Protobuf?
 
-- Free and open data serialization format
+- Free and open binary data serialization format
 - By Google, internally 2001, made public in 2008
-- Binary format -> highly efficient
 - Definition and documentation is the *same thing*
 
----
 
 # Example definition
 
-ironbank.proto:
+`ironbank.proto`:
 
 ```protobuf
 syntax = "proto3";
@@ -53,7 +52,6 @@ message Item {
 }
 ```
 
----
 
 # Example message
 
@@ -73,16 +71,18 @@ In base64 encoded Protobuf: `CAESC01hY2Jvb2sgUHJvGgAiCUNvcmUgdG9vbCjAhRM=` or in
 00000010  00 22 09 43 6f 72 65 20  74 6f 6f 6c 28 c0 85 13  |.".Core tool(...|
 ```
 
----
 
 # gRPC
 
+- Cross-platform high-performance remote procedure call (RPC) framework
+- Published in 2016
 - Best way to use Protobuf in an API
-- API defined using Protobuf too
+- API defined using Protobuf too 🤯
 - Officially support for a ~dozen programming languages
 - The "g" originally (in v1.0) stood for "gRPC Remote Procedure Calls", nowadays it's [different for each version](https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md)
 
-# gRPC example
+
+# gRPC definition example
 
 ```protobuf
 service IronBank {
@@ -95,18 +95,23 @@ message AddItemResponse {
 }
 ```
 
----
+
+# Tooling
+
+- Great tooling support
+  - For example, IntelliJ Idea and Postman already support gRPC/Protobuf
+  - Code generators available for Java, Kotlin, Node, ...
+
 
 # Where to go from here?
 
-## Protobuf
+**Protobuf**
 - Language Guide (proto 3): https://protobuf.dev/programming-guides/proto3/
 - Proto Best Practices: https://protobuf.dev/programming-guides/dos-donts/
 - API Best Practices: https://protobuf.dev/programming-guides/api/
 
-## gRPC
+**gRPC**
 - gRPC: https://grpc.io/
 
----
 
-# Thank you for listening!
+# Thank you!
