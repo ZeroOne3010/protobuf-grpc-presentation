@@ -4,3 +4,5 @@ A short **[Protocol Buffer](https://protobuf.dev/) / [gRPC](https://grpc.io/) pr
 3. Install the Slidy theme: `slideshow i slidy`
 4. Build this project: `slideshow build slides.md -t slidy`
 5. Open the result in your browser and start presenting: `open slides.html`
+
+...or you can just read the slides as a normal Markdown document: [slides.md](slides.md).
